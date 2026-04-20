@@ -88,16 +88,21 @@
     .card:hover { transform: translateY(-5px); border-color: #6366f1; }
 
     .card-thumb {
-      width: 100%; height: 140px;
+      width: 100%; height: 160px;
       display: flex; align-items: center; justify-content: center;
       font-size: 52px;
       position: relative;
       overflow: hidden;
     }
+    .card-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
     .card-thumb::after {
       content: "";
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.5));
+      background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.6));
     }
 
     .card-body { padding: 14px 16px 16px; }
@@ -168,7 +173,9 @@
       <div class="card-grid">
 
         <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #0a2a3a, #0d4f6b);">🤖</div>
+          <div class="card-thumb" style="background: #0a1a2a;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Ghost_in_the_Shell_logo_%281995_film%29.svg/500px-Ghost_in_the_Shell_logo_%281995_film%29.svg.png" alt="攻殻機動隊" onerror="this.style.display='none'">
+          </div>
           <div class="card-body">
             <div class="card-title">攻殻機動隊</div>
             <div class="card-desc">スマスロ版。純増約4.0枚/G、上位ATに入ると8.5枚に跳ね上がる爽快感。全9種のHACK演出が常に状況を一変させる。</div>
@@ -177,7 +184,9 @@
         </div>
 
         <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #1a0030, #3d0070);">🟣</div>
+          <div class="card-thumb" style="background: #1a0030;">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Evangelion_retouched.png/500px-Evangelion_retouched.png" alt="エヴァンゲリオン" onerror="this.style.display='none'">
+          </div>
           <div class="card-body">
             <div class="card-title">エヴァ15（未来への咆哮）</div>
             <div class="card-desc">ST継続率約81%の激アツ仕様。エヴァ無号機・最終号機が登場。シンプルモードでスッキリ遊べるのも魅力。</div>
@@ -186,7 +195,9 @@
         </div>
 
         <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #2a1500, #4a2800);">✨</div>
+          <div class="card-thumb" style="background: #1a1000;">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Kono_Subarashii_Sekai_ni_Shukufuku_o%21_light_novel_volume_1_cover.jpg/500px-Kono_Subarashii_Sekai_ni_Shukufuku_o%21_light_novel_volume_1_cover.jpg" alt="このすば" onerror="this.style.display='none'">
+          </div>
           <div class="card-body">
             <div class="card-title">このすば（パチスロ）</div>
             <div class="card-desc">この素晴らしい世界に祝福を！のパチスロ版。6人のヒロインとのバトルで全員撃破すれば上位ATへ。賑やかな演出が楽しい。</div>
@@ -201,6 +212,9 @@
     <div id="tab-game" class="tab-content">
       <p class="section-label">メインゲーム</p>
       <div class="hs-card">
+        <div style="width:100%; height:160px; overflow:hidden; border-radius:10px; margin-bottom:20px;">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/51/Hearthstone_screenshot.png/500px-Hearthstone_screenshot.png" alt="Hearthstone" style="width:100%; height:100%; object-fit:cover; object-position:center;">
+        </div>
         <div class="hs-header">
           <div class="hs-icon">🃏</div>
           <div>
