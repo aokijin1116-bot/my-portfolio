@@ -165,6 +165,7 @@
       <button class="tab-btn active" onclick="switchTab('gambling', this)">🎲 ギャンブル</button>
       <button class="tab-btn" onclick="switchTab('game', this)">🎮 ゲーム</button>
       <button class="tab-btn" onclick="switchTab('sports', this)">💪 運動</button>
+      <button class="tab-btn" onclick="switchTab('books', this)">📚 読書</button>
     </div>
 
     <!-- ギャンブルタブ -->
@@ -280,6 +281,46 @@
 
       </div>
     </div>
+
+    <!-- 読書タブ -->
+    <div id="tab-books" class="tab-content">
+      <p class="section-label">好きな本・ジャンル</p>
+      <div class="card-grid">
+
+        <div class="card">
+          <div class="card-thumb" style="background: linear-gradient(135deg, #1a0a2e, #2e1050);">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/38/Mata_Onaji_Yume_wo_Miteita_cover.jpg/250px-Mata_Onaji_Yume_wo_Miteita_cover.jpg" alt="また、同じ夢を見ていた" onerror="this.style.display='none'">
+          </div>
+          <div class="card-body">
+            <div class="card-title">また、同じ夢を見ていた</div>
+            <div class="card-desc">住野よる著。友達のいない少女・奈ノ花が、出会った女性たちとの交流を通じて「幸せとは何か」を探る物語。感銘を受けた一冊。</div>
+            <span class="badge badge-purple">小説</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" style="background: linear-gradient(135deg, #0a1a0a, #1a3a1a);">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d0/FlowersForAlgernon.jpg/250px-FlowersForAlgernon.jpg" alt="アルジャーノンに花束を" onerror="this.style.display='none'">
+          </div>
+          <div class="card-body">
+            <div class="card-title">アルジャーノンに花束を</div>
+            <div class="card-desc">ダニエル・キイス著。知的障害のある青年チャーリーが手術で天才になり、やがて元に戻っていく様子を日記形式で描いた名作。</div>
+            <span class="badge badge-green">海外小説</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" style="background: linear-gradient(135deg, #2e1a00, #5a3300); font-size: 40px;">📖</div>
+          <div class="card-body">
+            <div class="card-title">ラノベのラブコメ</div>
+            <div class="card-desc">ライトノベルのラブコメ全般が好きです。キャラクターの掛け合いや青春の雰囲気が好みです。</div>
+            <span class="badge badge-yellow">ライトノベル</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <script>
