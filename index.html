@@ -9,83 +9,240 @@
 
     body {
       font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-      background-color: #0f0f0f;
-      color: #e8e8e8;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 200, 140, 0.16), transparent 34%),
+        radial-gradient(circle at 84% 16%, rgba(255, 140, 110, 0.14), transparent 30%),
+        linear-gradient(180deg, #2f1f19 0%, #1e140f 52%, #140d09 100%);
+      color: #2f1d14;
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(78px);
+      pointer-events: none;
+      z-index: -1;
+    }
+    body::before {
+      width: 320px;
+      height: 320px;
+      left: -120px;
+      top: 34vh;
+      background: rgba(255, 156, 118, 0.3);
+    }
+    body::after {
+      width: 380px;
+      height: 380px;
+      right: -160px;
+      top: 44vh;
+      background: rgba(243, 201, 120, 0.22);
     }
 
-    /* ヒーロー */
     .hero {
       text-align: center;
-      padding: 60px 20px 50px;
-      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 70px 20px 64px;
+      background:
+        linear-gradient(180deg, rgba(35, 21, 15, 0.9), rgba(25, 15, 11, 0.96)),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.03) 0 16px,
+          rgba(0, 0, 0, 0.05) 16px 32px
+        );
       position: relative;
       overflow: hidden;
+      border-bottom: 2px solid rgba(238, 175, 103, 0.38);
     }
     .hero::before {
       content: "";
-      position: absolute; top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle at 60% 40%, rgba(99,102,241,0.15) 0%, transparent 50%);
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 22% 35%, rgba(255, 200, 129, 0.16), transparent 38%),
+        radial-gradient(circle at 76% 28%, rgba(255, 138, 90, 0.14), transparent 34%);
       pointer-events: none;
     }
-    .avatar {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px; font-weight: bold;
-      margin: 0 auto 20px;
-      box-shadow: 0 0 30px rgba(99,102,241,0.4);
+    .hero::after {
+      content: "自己紹介";
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 222, 185, 0.84);
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      font-weight: 700;
     }
-    h1 { font-size: 30px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 10px; color: #fff; }
-    .subtitle { color: #a0a0c0; font-size: 14px; }
+    h1 {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-size: clamp(36px, 5vw, 48px);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+      color: #ffe7c0;
+      text-shadow: 0 0 20px rgba(255, 156, 111, 0.35);
+      position: relative;
+      z-index: 1;
+    }
 
-    /* タブ */
-    .tabs-wrapper { max-width: 760px; margin: 40px auto 0; padding: 0 20px 80px; }
+    .page-shell {
+      width: min(1020px, calc(100% - 44px));
+      margin: 38px auto 84px;
+      display: block;
+      align-items: start;
+    }
+
+    .tabs-wrapper {
+      max-width: 100%;
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid #8f5d34;
+      background:
+        linear-gradient(180deg, rgba(250, 235, 210, 0.98), rgba(244, 226, 198, 0.98)),
+        repeating-linear-gradient(
+          0deg,
+          rgba(70, 48, 34, 0.035) 0 2px,
+          rgba(255, 255, 255, 0.02) 2px 4px
+        );
+      box-shadow:
+        0 20px 44px rgba(9, 6, 4, 0.42),
+        inset 0 0 0 1px rgba(255, 247, 232, 0.5);
+    }
     .tab-buttons {
-      display: flex; gap: 4px;
-      margin-bottom: 28px;
-      border-bottom: 1px solid #2a2a4a;
+      display: flex; gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      border-bottom: 1px dashed #a97b52;
+      padding-bottom: 12px;
+    }
+    .profile-summary {
+      margin-bottom: 18px;
+      padding: 0;
+    }
+    .profile-heading {
+      margin: 0 0 10px;
+      color: #4a2818;
+      line-height: 1.8;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .profile-intro {
+      margin: 0 0 12px;
+      color: #5f3723;
+      line-height: 1.8;
+      font-size: 14px;
+      text-align: center;
     }
     .tab-btn {
-      padding: 10px 22px;
-      background: none; border: none;
-      color: #555; font-size: 14px; font-weight: 600;
+      padding: 10px 18px;
+      background: #5a2f1f;
+      border: 1px solid #7b472e;
+      color: #f7e2bf;
+      font-size: 14px;
+      font-weight: 700;
       cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
-      transition: color 0.2s, border-color 0.2s;
+      border-radius: 999px;
+      transition: all 0.2s ease;
       letter-spacing: 0.05em;
       font-family: inherit;
     }
-    .tab-btn:hover { color: #a0a0c0; }
-    .tab-btn.active { color: #6366f1; border-bottom-color: #6366f1; }
-
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-
-    .section-label {
-      font-size: 11px; color: #6366f1;
-      text-transform: uppercase; letter-spacing: 0.15em;
-      margin-bottom: 20px; font-weight: 600;
+    .tab-btn:hover {
+      color: #fff8eb;
+      background: #713924;
+      transform: translateY(-1px);
+      border-color: #b66d46;
+    }
+    .tab-btn.active {
+      color: #45210f;
+      border-color: #d89b63;
+      background: linear-gradient(135deg, #ffdfb8, #ffc684);
+      box-shadow: 0 0 18px rgba(255, 158, 92, 0.35);
     }
 
-    /* カードグリッド */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fade-in-up 320ms ease; }
+    .hobby-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .hobby-btn {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid #bb8758;
+      background: #f9ebd0;
+      color: #5b2f1c;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .hobby-btn:hover {
+      color: #3f1f12;
+      border-color: #ce8c52;
+      background: #ffe6bd;
+      transform: translateY(-1px);
+    }
+    .hobby-btn.active {
+      color: #fff0db;
+      border-color: #7d3f26;
+      background: linear-gradient(135deg, #8f3d22 0%, #6f2d1a 100%);
+      box-shadow: 0 6px 16px rgba(109, 47, 25, 0.28);
+    }
+    .hobby-section { display: none; }
+    .hobby-section.active { display: block; animation: fade-in-up 320ms ease; }
+
+    .section-label {
+      font-size: 12px;
+      color: #9a3f21;
+      letter-spacing: 0.18em;
+      margin-bottom: 8px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .section-bridge {
+      margin: 0 0 16px;
+      color: #6f4531;
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: center;
+    }
+    .contact-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+    }
+    .contact-links a {
+      color: #6f4531;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
 
     .card {
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid #2a2a4a;
-      transition: transform 0.2s, border-color 0.2s;
-      background: #1a1a2e;
+      border: 1px solid #b7865e;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      background: #fff8eb;
     }
-    .card:hover { transform: translateY(-5px); border-color: #6366f1; }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #cd8753;
+      box-shadow: 0 14px 28px rgba(46, 24, 14, 0.26);
+    }
 
     .card-thumb {
       width: 100%; height: 160px;
@@ -98,239 +255,124 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
+      filter: sepia(0.16) saturate(1.05);
     }
     .card-thumb::after {
       content: "";
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.6));
+      background: linear-gradient(to bottom, transparent 45%, rgba(46, 24, 12, 0.38));
     }
 
-    .card-body { padding: 14px 16px 16px; }
-    .card-title { font-size: 15px; font-weight: 700; color: #e8e8e8; margin-bottom: 6px; }
-    .card-desc { font-size: 12px; color: #888; line-height: 1.6; }
+    .card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 172px;
+    }
+    .card-title { font-size: 16px; font-weight: 700; color: #4e2616; margin-bottom: 6px; }
+    .card-desc { font-size: 14px; color: #6f4531; line-height: 1.75; }
     .badge {
-      display: inline-block; font-size: 10px;
-      padding: 3px 10px; border-radius: 99px;
-      margin-top: 10px; font-weight: 600;
+      display: inline-block;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-top: auto; font-weight: 700;
     }
-    .badge-purple { background: rgba(99,102,241,0.2); color: #818cf8; }
-    .badge-green  { background: rgba(52,211,153,0.2); color: #34d399; }
-    .badge-yellow { background: rgba(251,191,36,0.2);  color: #fbbf24; }
-    .badge-red    { background: rgba(239,68,68,0.2);   color: #f87171; }
-    .badge-cyan   { background: rgba(34,211,238,0.2);  color: #22d3ee; }
+    .badge-purple { background: #f4d8c9; color: #803c25; }
+    .badge-green  { background: #d8ecd8; color: #2f6a34; }
+    .badge-yellow { background: #f5e0ae; color: #7a5610; }
+    .badge-red    { background: #f4c7b9; color: #8a2f1b; }
+    .badge-cyan   { background: #d3ebe8; color: #195f61; }
 
-    /* Hearthstone 特別レイアウト */
     .hs-card {
-      background: linear-gradient(135deg, #2d1b00, #3d2a00);
-      border: 1px solid #7a5c1e;
+      background: linear-gradient(135deg, #3f281d, #29190f);
+      border: 1px solid #a96f45;
       border-radius: 16px;
       padding: 28px 24px;
+      box-shadow: inset 0 0 0 1px rgba(255, 213, 168, 0.1);
     }
     .hs-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
     .hs-icon { font-size: 48px; }
-    .hs-title { font-size: 22px; font-weight: 700; color: #f5c842; }
-    .hs-subtitle { font-size: 13px; color: #a08030; margin-top: 2px; }
+    .hs-title { font-size: 22px; font-weight: 700; color: #ffd9a2; }
+    .hs-subtitle { font-size: 13px; color: #c9996b; margin-top: 2px; }
     .hs-stats {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 12px;
     }
     .hs-stat {
-      background: rgba(0,0,0,0.3);
-      border: 1px solid #5a4010;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid #8f6540;
       border-radius: 10px;
       padding: 14px;
       text-align: center;
     }
-    .hs-stat-value { font-size: 22px; font-weight: 700; color: #f5c842; }
-    .hs-stat-label { font-size: 11px; color: #a08030; margin-top: 4px; }
+    .hs-stat-value { font-size: 22px; font-weight: 700; color: #ffd07d; }
+    .hs-stat-label { font-size: 11px; color: #d1a478; margin-top: 4px; }
 
-    /* 運動カード */
-    .sports-note {
-      font-size: 12px; color: #666;
-      line-height: 1.7; margin-top: 8px;
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .page-shell {
+        width: min(900px, calc(100% - 24px));
+        margin-top: 26px;
+      }
+      .tabs-wrapper {
+        padding: 20px 18px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      .hobby-nav {
+        gap: 6px;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="hero">
-    <div class="avatar">仁</div>
     <h1>青木 仁</h1>
-    <p class="subtitle">はじめまして。ギャンブル・ゲーム・運動が好きです。</p>
   </div>
 
+  <div class="page-shell">
   <div class="tabs-wrapper">
-    <div class="tab-buttons">
-      <button class="tab-btn active" onclick="switchTab('gambling', this)">🎲 ギャンブル</button>
-      <button class="tab-btn" onclick="switchTab('game', this)">🎮 ゲーム</button>
-      <button class="tab-btn" onclick="switchTab('sports', this)">💪 運動</button>
-      <button class="tab-btn" onclick="switchTab('books', this)">📚 読書</button>
+    <div class="profile-summary">
+      <p class="profile-heading">はじめまして、青木です。</p>
+      <p class="profile-intro">今回はAI開発の勉強のために自己紹介サイトを練習として作ってみました。<br>1999年11月16日生まれ、サソリ座。よろしくお願いします。</p>
     </div>
 
-    <!-- ギャンブルタブ -->
-    <div id="tab-gambling" class="tab-content active">
-      <p class="section-label">好きなパチンコ・スロット</p>
-      <div class="card-grid">
+    <section>
+      <p class="section-label">性格</p>
+      <p class="section-bridge">思ったことをすぐに口にしてしまい、感じたことをすぐに行動に移してしまうタイプ。</p>
+    </section>
 
-        <div class="card">
-          <div class="card-thumb" style="background: #0a1a2a;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Ghost_in_the_Shell_logo_%281995_film%29.svg/500px-Ghost_in_the_Shell_logo_%281995_film%29.svg.png" alt="攻殻機動隊" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <div class="card-title">攻殻機動隊</div>
-            <div class="card-desc">スマスロ版。純増約4.0枚/G、上位ATに入ると8.5枚に跳ね上がる爽快感。全9種のHACK演出が常に状況を一変させる。</div>
-            <span class="badge badge-cyan">スロット</span>
-          </div>
-        </div>
+    <section>
+      <p class="section-label">目標</p>
+      <p class="section-bridge">リクエストをもらったアプリを、週に1個、3日に1個か2日に1個くらい作って公開する。<br>良かったらリクエストお願いします。</p>
+    </section>
 
-        <div class="card">
-          <div class="card-thumb" style="background: #1a0030;">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Evangelion_retouched.png/500px-Evangelion_retouched.png" alt="エヴァンゲリオン" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <div class="card-title">エヴァ15（未来への咆哮）</div>
-            <div class="card-desc">ST継続率約81%の激アツ仕様。エヴァ無号機・最終号機が登場。シンプルモードでスッキリ遊べるのも魅力。</div>
-            <span class="badge badge-purple">パチンコ</span>
-          </div>
-        </div>
+    <section>
+      <p class="section-label">趣味</p>
+      <p class="section-bridge">読書は小説中心で、ゲームは対戦系とドラクエ。対戦系が好き。</p>
+    </section>
 
-        <div class="card">
-          <div class="card-thumb" style="background: #1a1000;">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Kono_Subarashii_Sekai_ni_Shukufuku_o%21_light_novel_volume_1_cover.jpg/500px-Kono_Subarashii_Sekai_ni_Shukufuku_o%21_light_novel_volume_1_cover.jpg" alt="このすば" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <div class="card-title">このすば（パチスロ）</div>
-            <div class="card-desc">この素晴らしい世界に祝福を！のパチスロ版。6人のヒロインとのバトルで全員撃破すれば上位ATへ。賑やかな演出が楽しい。</div>
-            <span class="badge badge-yellow">スロット</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ゲームタブ -->
-    <div id="tab-game" class="tab-content">
-      <p class="section-label">メインゲーム</p>
-      <div class="hs-card">
-        <div style="width:100%; height:160px; overflow:hidden; border-radius:10px; margin-bottom:20px;">
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/51/Hearthstone_screenshot.png/500px-Hearthstone_screenshot.png" alt="Hearthstone" style="width:100%; height:100%; object-fit:cover; object-position:center;">
-        </div>
-        <div class="hs-header">
-          <div class="hs-icon">🃏</div>
-          <div>
-            <div class="hs-title">Hearthstone</div>
-            <div class="hs-subtitle">Blizzard Entertainment — デジタルCCG</div>
-          </div>
-        </div>
-        <div class="hs-stats">
-          <div class="hs-stat">
-            <div class="hs-stat-value">1位</div>
-            <div class="hs-stat-label">到達最高ランク</div>
-          </div>
-          <div class="hs-stat">
-            <div class="hs-stat-value">7位</div>
-            <div class="hs-stat-label">月末フィニッシュ</div>
-          </div>
-          <div class="hs-stat">
-            <div class="hs-stat-value">TOP16</div>
-            <div class="hs-stat-label">マスターズツアー</div>
-          </div>
-          <div class="hs-stat">
-            <div class="hs-stat-value">スタンダード</div>
-            <div class="hs-stat-label">好きなモード</div>
-          </div>
-        </div>
-        <p style="font-size:12px; color:#7a5c1e; margin-top:16px;">
-          1対1のカードバトル。ミニオン召喚・呪文・武器を駆使して相手のヒーローを倒す本格CCG。ランク戦最高峰のレジェンドはプレイヤーの0.5%のみが到達できる領域。
-        </p>
-      </div>
-    </div>
-
-    <!-- 運動タブ -->
-    <div id="tab-sports" class="tab-content">
-      <p class="section-label">好きな運動・昔やっていた運動</p>
-      <div class="card-grid">
-
-        <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #003d1a, #006b2e);">🏓</div>
-          <div class="card-body">
-            <div class="card-title">卓球</div>
-            <div class="card-desc">中学校の時に部活動で取り組んでいました。</div>
-            <span class="badge badge-yellow">過去</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #3d1a00, #6b2e00);">🏃</div>
-          <div class="card-body">
-            <div class="card-title">ランニング</div>
-            <div class="card-desc">頭を無心にして、長距離を走り汗をかくことが好きです。</div>
-            <span class="badge badge-green">継続中</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #1a2e00, #2e5200);">🏔️</div>
-          <div class="card-body">
-            <div class="card-title">山登り</div>
-            <div class="card-desc">奥多摩の百尋の滝へ思いつきで行ってみたところ、予想以上に楽しく、それ以来好きになりました。</div>
-            <span class="badge badge-green">継続中</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- 読書タブ -->
-    <div id="tab-books" class="tab-content">
-      <p class="section-label">好きな本・ジャンル</p>
-      <div class="card-grid">
-
-        <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #1a0a2e, #2e1050);">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/38/Mata_Onaji_Yume_wo_Miteita_cover.jpg/250px-Mata_Onaji_Yume_wo_Miteita_cover.jpg" alt="また、同じ夢を見ていた" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <div class="card-title">また、同じ夢を見ていた</div>
-            <div class="card-desc">住野よる著。友達のいない少女・奈ノ花が、出会った女性たちとの交流を通じて「幸せとは何か」を探る物語。感銘を受けた一冊。</div>
-            <span class="badge badge-purple">小説</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #0a1a0a, #1a3a1a);">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d0/FlowersForAlgernon.jpg/250px-FlowersForAlgernon.jpg" alt="アルジャーノンに花束を" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <div class="card-title">アルジャーノンに花束を</div>
-            <div class="card-desc">ダニエル・キイス著。知的障害のある青年チャーリーが手術で天才になり、やがて元に戻っていく様子を日記形式で描いた名作。</div>
-            <span class="badge badge-green">海外小説</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-thumb" style="background: linear-gradient(135deg, #2e1a00, #5a3300); font-size: 40px;">📖</div>
-          <div class="card-body">
-            <div class="card-title">ラノベのラブコメ</div>
-            <div class="card-desc">ライトノベルのラブコメ全般が好きです。キャラクターの掛け合いや青春の雰囲気が好みです。</div>
-            <span class="badge badge-yellow">ライトノベル</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <section>
+      <p class="section-label">連絡先</p>
+      <ul class="contact-links">
+        <li>GitHub: <a href="https://github.com/aokijin1116-bot">AokiJin1116_bot</a></li>
+        <li>X（Twitter）: @lzIWdLcQDUteLtz</li>
+      </ul>
+      <p class="section-bridge">連絡はGitHubのissueかTwitterのDMでお願いします。</p>
+    </section>
 
   </div>
 
-  <script>
-    function switchTab(name, btn) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-      document.getElementById('tab-' + name).classList.add('active');
-      btn.classList.add('active');
-    }
-  </script>
+  </div>
 
 </body>
 </html>
