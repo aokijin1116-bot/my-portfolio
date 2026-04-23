@@ -67,23 +67,15 @@
     .hero::after {
       content: "自己紹介";
       position: absolute;
-      top: 14px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       color: rgba(255, 222, 185, 0.84);
-      font-size: 16px;
-      letter-spacing: 0.25em;
+      font-size: clamp(40px, 8vw, 68px);
+      letter-spacing: 0.18em;
       font-weight: 700;
-    }
-    h1 {
       font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-      font-size: clamp(36px, 5vw, 48px);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      margin-bottom: 12px;
-      color: #ffe7c0;
-      text-shadow: 0 0 20px rgba(255, 156, 111, 0.35);
-      position: relative;
+      text-shadow: 0 0 18px rgba(255, 156, 111, 0.32);
       z-index: 1;
     }
 
@@ -324,9 +316,6 @@
       .tabs-wrapper {
         padding: 20px 18px;
       }
-      h1 {
-        font-size: 26px;
-      }
       .hobby-nav {
         gap: 6px;
       }
@@ -335,9 +324,7 @@
 </head>
 <body>
 
-  <div class="hero">
-    <h1>青木</h1>
-  </div>
+  <div class="hero"></div>
 
   <div class="page-shell">
   <div class="tabs-wrapper">
