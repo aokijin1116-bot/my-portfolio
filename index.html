@@ -164,6 +164,106 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+    .contact-actions {
+      margin: 6px 0 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .contact-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      background: #2f5fa8;
+    }
+    .contact-btn.sub {
+      background: #4c4c4c;
+    }
+    .works-placeholder {
+      margin-top: 10px;
+      padding: 18px 14px;
+      border: 1px dashed #c9c9c9;
+      border-radius: 10px;
+      background: #fff;
+      color: #666;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .works-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .request-form {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+    .request-form input,
+    .request-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #d4d4d4;
+      background: #fff;
+      color: #333;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .request-form textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .request-form input:focus,
+    .request-form textarea:focus {
+      outline: none;
+      border-color: #2f5fa8;
+      box-shadow: 0 0 0 2px rgba(47, 95, 168, 0.15);
+    }
+    .form-submit {
+      justify-self: center;
+      border: 0;
+      border-radius: 999px;
+      background: #1f4e96;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+    .form-submit:hover {
+      background: #173f7c;
+    }
+    .go-actions {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      display: grid;
+      gap: 8px;
+      z-index: 30;
+    }
+    .go-btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #222;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+    .go-btn.secondary {
+      background: #3b6db8;
+    }
 
     @media (max-width: 980px) {
       .page-shell {
@@ -200,22 +300,97 @@
     </section>
 
     <section class="profile-section">
+      <p class="section-label">今やってること</p>
+      <p class="section-bridge">AI開発の勉強をしながら、自己紹介サイトとポートフォリオの土台を作っています。<br>GitとGitHubの運用もあわせて練習中です。</p>
+    </section>
+
+    <section class="profile-section">
       <p class="section-label">趣味</p>
       <p class="section-bridge">読書は小説中心で、ゲームは対戦系とドラクエ。対戦系が好き。</p>
+    </section>
+
+    <section class="profile-section">
+      <p class="section-label">制作実績</p>
+      <p class="section-bridge">ここに作ったアプリを追加していきます。</p>
+      <div class="works-list">
+        <div class="works-placeholder">
+          1作目を制作中です。<br>
+          完成したら、この欄にアプリ名・概要・リンクを掲載します。
+        </div>
+        <div class="works-placeholder">
+          2作目を制作予定です。<br>
+          テーマが決まり次第、この欄に追加します。
+        </div>
+        <div class="works-placeholder">
+          3作目を制作予定です。<br>
+          テーマが決まり次第、この欄に追加します。
+        </div>
+        <div class="works-placeholder">
+          4作目を制作予定です。<br>
+          テーマが決まり次第、この欄に追加します。
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <p class="section-label">依頼フォーム</p>
+      <p class="section-bridge">入力して送信すると、GitHubのIssue作成画面に内容が反映されます。</p>
+      <form class="request-form" id="request-form">
+        <input type="text" id="requester-name" placeholder="お名前（任意）">
+        <input type="text" id="request-title" placeholder="依頼タイトル（必須）" required>
+        <textarea id="request-detail" placeholder="依頼内容（必須）" required></textarea>
+        <button type="submit" class="form-submit">依頼をIssueで送る</button>
+      </form>
     </section>
 
     <section class="profile-section">
       <p class="section-label">連絡先</p>
       <ul class="contact-links">
         <li>GitHub: <a href="https://github.com/aokijin1116-bot">AokiJin1116_bot</a></li>
-        <li>X（Twitter）: @lzIWdLcQDUteLtz</li>
+        <li>X（Twitter）: <a href="https://x.com/lzIWdLcQDUteLtz">@lzIWdLcQDUteLtz</a></li>
       </ul>
+      <div class="contact-actions">
+        <a class="contact-btn" href="https://github.com/aokijin1116-bot/my-portfolio/issues/new">Issueを作成する</a>
+        <a class="contact-btn sub" href="https://x.com/lzIWdLcQDUteLtz">Xプロフィールを開く</a>
+      </div>
       <p class="section-bridge">連絡はGitHubのissueかTwitterのDMでお願いします。</p>
     </section>
 
   </div>
 
   </div>
+
+  <div class="go-actions">
+    <a class="go-btn" href="https://github.com/aokijin1116-bot/my-portfolio/issues">依頼する（Issue）</a>
+    <a class="go-btn secondary" href="https://github.com/aokijin1116-bot">GitHubを見る</a>
+  </div>
+
+  <script>
+    const requestForm = document.getElementById("request-form");
+    requestForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = document.getElementById("requester-name").value.trim();
+      const title = document.getElementById("request-title").value.trim();
+      const detail = document.getElementById("request-detail").value.trim();
+      if (!title || !detail) return;
+
+      const body = [
+        "## 依頼内容",
+        detail,
+        "",
+        "## 依頼者",
+        name || "未記入",
+      ].join("\n");
+
+      const issueUrl =
+        "https://github.com/aokijin1116-bot/my-portfolio/issues/new?title=" +
+        encodeURIComponent(title) +
+        "&body=" +
+        encodeURIComponent(body);
+
+      window.open(issueUrl, "_blank");
+    });
+  </script>
 
 </body>
 </html>
